@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>Formulario Crear conjunto</h1>
+{% endblock header %}
+
+{% block content %}
+<!--
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+        <label for="">{{form2.nombre.label}}</label>
+        {{form2.nombre}}
+        </div>
+    </div>
+</div>
+-->
+<form  method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    {{ form2.as_p}}
+
+    <button class="btn-danger">Guardar Persona</button>
+</form>
+{% endblock content %}

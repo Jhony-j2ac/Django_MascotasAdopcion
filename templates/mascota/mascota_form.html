@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>Formulario principal de mascotas para la creacion</h1>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>envio</button>
+</form>
+{% endblock header %}

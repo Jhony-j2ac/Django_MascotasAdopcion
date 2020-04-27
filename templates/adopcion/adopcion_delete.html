@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+
+{% block header %}
+<h1>Eliminacion de adopcion</h1>
+{% endblock header %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <h3>Esta seguro de eliminar este registro {{solicitud.persona.nombre}} {{solicitud.persona.apellido}}</h3>
+    <button>Si, elminar</button>
+
+    <a href="{% url 'adopcion:SolicitudListView' %}">No eliminar</a>
+</form>
+
+{% endblock content %}
+
+

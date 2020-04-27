@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block header%}
+<h1>Listado de adopciones</h1>
+<a href="{% url 'logout' %}">Salir</a>
+{% endblock header%}
+{% block content %}
+
+    {% if object_list %}
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Persona</th>
+                    <th>numero mascotas</th>
+                    <th>razones</th>
+                    <th>L</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for solicitud in object_list %}
+                    <tr>    
+                        <td>{{solicitud.id}}</td>
+                        <td>{{solicitud.persona.nombre}} {{solicitud.persona.apellido}}</td>
+                        <td>{{solicitud.numero_mascotas}}</td>
+                        <td>{{solicitud.razones}}</td>
+                        <td>
+                            <a href="{% url 'adopcion:SolicitudUpdateView' solicitud.id %}">Editar</a>
+                            <a href="{% url 'adopcion:SolicitudDeleteView' solicitud.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% else  %}
+    <h4>No hay registros</h4>
+    {% endif %}
+
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'base.html'  %}
+{% block header %}
+<h1>Login de usuarios</h1>
+{% endblock header %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>Guardar</button>
+</form>
+{% endblock content %}

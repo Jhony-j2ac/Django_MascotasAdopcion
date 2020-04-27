@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>Eliminada mascota</h1>
+<form method="post">
+    {% csrf_token %}
+    <h3>Desea eliminar la mascota {{ mascota.nombre}}</h3>
+    <button Value="SI">Si</button>
+    <a href="{% url 'mascota:mascota_list_view' %}">No</a>
+</form>
+{% endblock header %}
+<h1>Eliminada mascota</h1>
